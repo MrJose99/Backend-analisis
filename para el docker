@@ -1,0 +1,17 @@
+
+
+docker exec -u 0 -it sqlserver_ruteros /bin/bash
+
+
+#despues de entrar al contenedor
+apt-get update
+apt-get install -y mssql-tools18 unixodbc-dev
+
+#después de instalar las herramientas (ojo, si cambian la contraseña hay que cambiarla en el comando lo que esta depues del -P)
+/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P "YourStrong@Passw0rd" -C
+
+#crear la base de datos (el nombre de la base de datos debe coincidir con el de .env)
+CREATE DATABASE AppWeb_Ruteros;
+GO
+#si despues del go, en la termlinal en el lado izquierdo aparece un 1, es que se creó bien la base de datos
+
