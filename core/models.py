@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class TimeStampedModel(models.Model):
     """Modelo abstracto base para timestamps"""
     creado_en = models.DateTimeField(auto_now_add=True, db_column='creado_en')
@@ -18,8 +19,7 @@ class EstatusCredito(models.Model):
     descripcion = models.CharField(max_length=100, null=True, blank=True)
 
     class Meta:
-        db_table = 'sistema\".\"cat_estatus_credito'
-        managed = False
+
         verbose_name = 'Estatus de Crédito'
         verbose_name_plural = 'Estatus de Crédito'
 
@@ -32,8 +32,7 @@ class Presentacion(models.Model):
     descripcion = models.CharField(max_length=100, null=True, blank=True)
 
     class Meta:
-        db_table = 'sistema\".\"cat_presentacion'
-        managed = False
+
         verbose_name = 'Presentación'
         verbose_name_plural = 'Presentaciones'
 
@@ -46,8 +45,7 @@ class ResultadoVisita(models.Model):
     descripcion = models.CharField(max_length=100, null=True, blank=True)
 
     class Meta:
-        db_table = 'sistema\".\"cat_resultado_visita'
-        managed = False
+
         verbose_name = 'Resultado de Visita'
         verbose_name_plural = 'Resultados de Visita'
 
@@ -61,8 +59,7 @@ class TiempoCliente(models.Model):
     descripcion = models.CharField(max_length=50)
 
     class Meta:
-        db_table = 'sistema\".\"cat_tiempo_cliente'
-        managed = False
+
         verbose_name = 'Tiempo de Cliente'
         verbose_name_plural = 'Tiempos de Cliente'
 
@@ -75,8 +72,7 @@ class Periodo(models.Model):
     descripcion = models.CharField(max_length=50)
 
     class Meta:
-        db_table = 'sistema\".\"cat_periodo'
-        managed = False
+
         verbose_name = 'Período'
         verbose_name_plural = 'Períodos'
 
@@ -89,8 +85,7 @@ class EstadoUsuario(models.Model):
     descripcion = models.CharField(max_length=100, null=True, blank=True)
 
     class Meta:
-        db_table = 'sistema\".\"cat_estado_usuario'
-        managed = False
+
         verbose_name = 'Estado de Usuario'
         verbose_name_plural = 'Estados de Usuario'
 
@@ -103,8 +98,7 @@ class Rol(models.Model):
     descripcion = models.CharField(max_length=200, null=True, blank=True)
 
     class Meta:
-        db_table = 'sistema\".\"cat_rol'
-        managed = False
+
         verbose_name = 'Rol'
         verbose_name_plural = 'Roles'
 

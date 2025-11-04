@@ -28,8 +28,7 @@ class Ruta(TimeStampedModel):
     resultado_global = models.CharField(max_length=50, null=True, blank=True, db_column='resultado_global')
 
     class Meta:
-        db_table = 'sistema\".\"rutas'
-        managed = False
+
         verbose_name = 'Ruta'
         verbose_name_plural = 'Rutas'
         ordering = ['-fecha']
@@ -68,8 +67,7 @@ class RutaCliente(models.Model):
     observaciones = models.CharField(max_length=500, null=True, blank=True)
 
     class Meta:
-        db_table = 'sistema\".\"ruta_clientes'
-        managed = False
+
         unique_together = ('id_ruta', 'nit_cliente')
         verbose_name = 'Cliente en Ruta'
         verbose_name_plural = 'Clientes en Ruta'
@@ -103,8 +101,6 @@ class MetaVendedor(TimeStampedModel):
     observaciones = models.CharField(max_length=500, null=True, blank=True)
 
     class Meta:
-        db_table = 'sistema\".\"metas_vendedor'
-        managed = False
         verbose_name = 'Meta de Vendedor'
         verbose_name_plural = 'Metas de Vendedor'
         ordering = ['-fecha_inicio']

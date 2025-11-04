@@ -10,8 +10,7 @@ class Usuario(TimeStampedModel):
     ultimo_ingreso = models.DateTimeField(null=True, blank=True, db_column='ultimo_ingreso')
 
     class Meta:
-        db_table = 'sistema\".\"usuarios'
-        managed = False
+
         verbose_name = 'Usuario'
         verbose_name_plural = 'Usuarios'
 
@@ -33,8 +32,7 @@ class Administrador(TimeStampedModel):
     )
 
     class Meta:
-        db_table = 'sistema\".\"administradores'
-        managed = False
+
         verbose_name = 'Administrador'
         verbose_name_plural = 'Administradores'
 
@@ -51,8 +49,6 @@ class UsuarioEstado(models.Model):
     observaciones = models.CharField(max_length=250, null=True, blank=True)
 
     class Meta:
-        db_table = 'sistema\".\"usuarios_estados'
-        managed = False
         verbose_name = 'Estado de Usuario'
         verbose_name_plural = 'Estados de Usuario'
 
@@ -63,8 +59,6 @@ class UsuarioRol(models.Model):
     asignado_en = models.DateTimeField(auto_now_add=True, db_column='asignado_en')
 
     class Meta:
-        db_table = 'sistema\".\"usuarios_roles'
-        managed = False
         unique_together = ('id_usuario', 'rol')
         verbose_name = 'Rol de Usuario'
         verbose_name_plural = 'Roles de Usuario'

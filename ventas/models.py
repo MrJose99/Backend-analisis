@@ -24,8 +24,6 @@ class Venta(TimeStampedModel):
     total = models.DecimalField(max_digits=14, decimal_places=2)
 
     class Meta:
-        db_table = 'sistema\".\"ventas'
-        managed = False
         verbose_name = 'Venta'
         verbose_name_plural = 'Ventas'
         ordering = ['-fecha']
@@ -51,8 +49,6 @@ class DetalleVenta(models.Model):
     precio_unitario = models.DecimalField(max_digits=12, decimal_places=2, db_column='precio_unitario')
 
     class Meta:
-        db_table = 'sistema\".\"detalle_venta'
-        managed = False
         unique_together = ('id_venta', 'linea')
         verbose_name = 'Detalle de Venta'
         verbose_name_plural = 'Detalles de Venta'
@@ -81,8 +77,7 @@ class Cobro(TimeStampedModel):
     monto = models.DecimalField(max_digits=14, decimal_places=2)
 
     class Meta:
-        db_table = 'sistema\".\"cobros'
-        managed = False
+
         verbose_name = 'Cobro'
         verbose_name_plural = 'Cobros'
         ordering = ['-fecha']

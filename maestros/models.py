@@ -6,7 +6,7 @@ class Cliente(TimeStampedModel):
     nit = models.CharField(max_length=9, primary_key=True, db_column='nit')
     nombre = models.CharField(max_length=150)
     direccion = models.CharField(max_length=250, null=True, blank=True)
-    correo_electronico = models.EmailField(max_length=150, null=True, blank=True, db_column='correo_electronico')
+    correo_electronico = models.EmailField(max_length=150, null=True, blank=True)
     estatus_credito = models.ForeignKey(
         EstatusCredito,
         on_delete=models.PROTECT,
@@ -15,8 +15,7 @@ class Cliente(TimeStampedModel):
     )
 
     class Meta:
-        db_table = 'sistema\".\"clientes'
-        managed = False
+
         verbose_name = 'Cliente'
         verbose_name_plural = 'Clientes'
         ordering = ['nombre']
@@ -26,10 +25,10 @@ class Cliente(TimeStampedModel):
 
 
 class Producto(TimeStampedModel):
-    codigo = models.CharField(max_length=30, primary_key=True, db_column='codigo')
+    codigo = models.CharField(max_length=30, primary_key=True)
     descripcion = models.CharField(max_length=200)
     color = models.CharField(max_length=50, null=True, blank=True)
-    precio_unitario = models.DecimalField(max_digits=12, decimal_places=2, db_column='precio_unitario')
+    precio_unitario = models.DecimalField(max_digits=12, decimal_places=2)
     presentacion = models.ForeignKey(
         Presentacion,
         on_delete=models.PROTECT,
@@ -37,8 +36,7 @@ class Producto(TimeStampedModel):
     )
 
     class Meta:
-        db_table = 'sistema\".\"productos'
-        managed = False
+
         verbose_name = 'Producto'
         verbose_name_plural = 'Productos'
         ordering = ['descripcion']
@@ -48,16 +46,14 @@ class Producto(TimeStampedModel):
 
 
 class Vendedor(TimeStampedModel):
-    dpi = models.CharField(max_length=13, primary_key=True, db_column='dpi')
+    dpi = models.CharField(max_length=13, primary_key=True)
     nombre = models.CharField(max_length=150)
-    correo_electronico = models.EmailField(max_length=150, null=True, blank=True, db_column='correo_electronico')
+    correo_electronico = models.EmailField(max_length=150, null=True, blank=True)
     telefono = models.CharField(max_length=30, null=True, blank=True)
     sueldo = models.DecimalField(max_digits=12, decimal_places=2)
-    nivel_exito = models.SmallIntegerField(null=True, blank=True, db_column='nivel_exito')
+    nivel_exito = models.SmallIntegerField(null=True, blank=True)
 
     class Meta:
-        db_table = 'sistema\".\"vendedores'
-        managed = False
         verbose_name = 'Vendedor'
         verbose_name_plural = 'Vendedores'
         ordering = ['nombre']
